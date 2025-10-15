@@ -1,0 +1,39 @@
+[project]
+name = "slidegauge"
+version = "0.2.0"
+description = "Static analyzer for Marp Markdown decks - validates slide quality for AI agents"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Nikola", email = "nibzard@users.noreply.github.com"}
+]
+keywords = ["marp", "markdown", "slides", "linter", "static-analysis", "ai-agent"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Quality Assurance",
+]
+
+[project.urls]
+Homepage = "https://github.com/nibzard/slidegauge"
+Repository = "https://github.com/nibzard/slidegauge"
+Issues = "https://github.com/nibzard/slidegauge/issues"
+
+[project.scripts]
+slidegauge = "slidegauge:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+only-include = ["slidegauge.py"]
