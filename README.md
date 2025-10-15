@@ -26,6 +26,9 @@ uvx --from git+https://github.com/nibzard/slidegauge slidegauge presentation.md 
 
 # JSON output (default)
 uvx --from git+https://github.com/nibzard/slidegauge slidegauge presentation.md --json
+
+# Try the included example
+uvx --from git+https://github.com/nibzard/slidegauge slidegauge example.md --text
 ```
 
 ### Install with uv
