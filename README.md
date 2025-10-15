@@ -1,8 +1,17 @@
 # SlideGauge
 
+[![Test](https://github.com/nibzard/slidegauge/actions/workflows/test.yml/badge.svg)](https://github.com/nibzard/slidegauge/actions/workflows/test.yml)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 > **Static analyzer for Marp Markdown decks** - validates slide quality with AI-agent-friendly feedback
 
 SlideGauge is a zero-dependency Python tool that analyzes Marp markdown presentations and provides actionable feedback on slide quality. Designed specifically for AI coding agents to use when creating slides, but useful for humans too.
+
+```bash
+# Try it instantly with uvx (no installation)
+uvx --from git+https://github.com/nibzard/slidegauge slidegauge example.md --text
+```
 
 ## Features
 
