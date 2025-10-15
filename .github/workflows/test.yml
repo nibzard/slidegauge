@@ -1,0 +1,45 @@
+name: Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Run self-tests
+      run: python3 slidegauge.py --selftest
+
+    - name: Test on example.md
+      run: |
+        python3 slidegauge.py example.md --json > output.json
+        test -s output.json || exit 1
+
+    - name: Verify text output
+      run: |
+        python3 slidegauge.py example.md --text
+
+    - name: Verify SARIF output
+      run: |
+        python3 slidegauge.py example.md --sarif > results.sarif
+        test -s results.sarif || exit 1
+
+    - name: Test with uvx
+      if: matrix.python-version == '3.11'
+      run: |
+        pip install uv
+        uvx --from . slidegauge example.md --text
